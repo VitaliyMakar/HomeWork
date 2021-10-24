@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  //word-wrap: break-word;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: $mainSize;
+}
+
+.wrapper {
+  @include wrapperBlock(90%);
+
+  @include tablet {
+    @include wrapperBlock(90%);
+  }
+
+  @include laptop {
+    @include wrapperBlock(90%);
+  }
+
+  @include large {
+    @include wrapperBlock(1140px);
+  }
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  @include h1Header();
+}
+
+h2 {
+  @include h2Header();
+}
+
+h4 {
+  @include h4Header();
+}

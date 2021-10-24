@@ -1,0 +1,110 @@
+@mixin wrapperBlock($width) {
+  max-width: $width;
+  margin: 0 auto;
+}
+
+@mixin h1Header() {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: $h1Size;
+}
+
+@mixin h2Header() {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: $h2Size;
+}
+
+@mixin h4Header() {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: $h4Size;
+}
+
+@mixin socials() {
+  font-size: $socialsSize;
+}
+
+@mixin bgImageAttribute() {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin buttonLink {
+  //font-family: "Comfortaa";
+  //font-size: 12px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: block;
+  border: 2px solid $white;
+  border-radius: 10px;
+  // background-color: black;
+  width: fit-content;
+  // text-transform: uppercase;
+  color: $white;
+  padding: 10px 20px;
+  margin: 0 auto;
+  transition: 0.3s all linear;
+  &:hover {
+    background-color: rgba($color: black, $alpha: .3);
+  }
+}
+
+@mixin form-btn {
+  //display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: $mainSize;
+  width: 150px;
+  cursor: pointer;
+  border: none;
+  background-color: #292d33;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 3px;
+  //text-transform: uppercase;
+  text-align: center;
+  padding: 15px 25px;
+  transition: 0.3s all linear;
+
+  &:hover {
+    background-color: white;
+    color: #1a1a1a;
+  }
+}
+
+@mixin formFields {
+  border: none;
+  background-color: $bgDarkGray;
+  color: $white;
+  //width: 50%;
+  margin-bottom: 10px;
+  font-size: 1em;
+  padding: 10px;
+  transition: 0.3s all linear;
+
+  &:focus-visible {
+    outline: none;
+    background-color: $white;
+    color: $bgDarkGray;
+    font-size: 1.2em;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin large {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}

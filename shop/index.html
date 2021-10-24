@@ -1,0 +1,60 @@
+<!--
+Исходные данные:
+1. Список категорий товаров (массив объектов)
+2. Форма для создания нового товара
+3. Список категорий (отображение на странице)
+4. Список товаров для выбранной категории (name, img_link, price)
+5. Модальное окно для выбранного товара
+6. Категория {id, name, description}
+7. Товар {id, category_id, name, img_link, description, price}-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./assets/css/app.css">
+    <title>Shop</title>
+</head>
+<body>
+
+<section class="section-form">
+    <div class="wrapper">
+        <form action="" class="form-addCard" id="form-addCard">
+            <label for="img_link">Image Link</label>
+            <input type="text" class="input-field" id="img_link">
+            <label for="name">Product Name</label>
+            <input type="text" class="input-field" id="name">
+            <label for="description">Product description</label>
+            <input type="text" class="input-field" id="description">
+            <label for="price">Price</label>
+            <input type="text" class="input-field" id="price">
+            <label for="category_name">Product Category</label>
+            <select name="" class="input-field" id="category_name"></select>
+            <button type="submit" class="form-btn"></button>
+        </form>
+    </div>
+</section>
+<section class="section-shop">
+    <div class="wrapper">
+        <div class="shop">
+            <div class="shop__container" id="category">
+
+            </div>
+            <div class="shop__container" id="products">
+                <div class="productCard">
+                    <div class="productCard__image">
+                        <img src="" alt="">
+                    </div>
+                    <h2></h2>
+                    <p></p>
+                    <span> </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<script defer src="./app.js"></script>
+</body>
+</html>

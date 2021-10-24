@@ -1,0 +1,44 @@
+//.section-shop {
+//  background-image: url("https://images03.nicepage.com/c461c07a441a5d220e8feb1a/ae0a48e6f7d9527285059e65/fgfgfg-min.jpg");
+//  @include bgImageAttribute;
+//  padding-top: 70px;
+//  color: $white;
+//  min-height: 100vh;
+//
+//  & .wrapper {
+//
+//    @include tablet {
+//
+//    }
+//  }
+//}
+//
+//.container-main {
+//  padding: 25% 3% 10%;
+//  width: 40%;
+//  display: flex;
+//  flex-direction: column;
+//  justify-content: flex-end;
+//  align-items: flex-start;
+//
+//  & h1, p, div, a {
+//    margin-bottom: 30px;
+//  }
+//
+//  & h1 {
+//    line-height: 1.2;
+//  }
+//
+//  & p {
+//    letter-spacing: 1px;
+//    line-height: 1.6;
+//  }
+//}
+//
+//.socials {
+//  @include socials;
+//}
+//
+//.buttonLink {
+//  @include buttonLink;
+//}
