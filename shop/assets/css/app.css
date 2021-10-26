@@ -55,6 +55,15 @@ h4 {
   font-size: 20px;
 }
 
+.section-form {
+  background-color: #f2f2f2;
+}
+
+.form-addCard {
+  padding: 70px 0;
+  display: flex;
+}
+
 .footer {
   background-color: #6d7249;
   padding: 30px 0;

@@ -1,107 +1,134 @@
-const productContainer = document.querySelector('#products')
-const categoryContainer = document.querySelector('#category')
+const productsContainer = document.querySelector('#productsContainer')
+const categoryContainer = document.querySelector('#categoryContainer')
+const selectCategory = document.querySelector('#selectCategory')
 const formAddCard = document.querySelector('#form-addCard')
 
-const img_link = document.querySelector('#img_link')
-const name = document.querySelector('#name')
-const description = document.querySelector('#description')
-const price = document.querySelector('#price')
-const category_name = document.querySelector('#category_name')
+const imgLink = document.querySelector('#imgLink')
+const itemName = document.querySelector('#itemName')
+const itemDescription = document.querySelector('#itemDescription')
+const itemPrice = document.querySelector('#itemPrice')
+const categoryName = document.querySelector('#categoryName')
 
 const categories = [
     {
-        id: 1,
-        category_name: 'Fruits',
-        description: 'Fresh Fruits'
+        categoryId: 1,
+        categoryName: 'Fruit & Vegetables',
+        categoryDescription: 'Fresh Fruit & Vegetables'
     },
     {
-        id: 2,
-        category_name: 'Vegetables',
-        description: 'Fresh Vegetables'
+        categoryId: 2,
+        categoryName: 'Bakery',
+        categoryDescription: 'Oven fresh bakery'
     },
     {
-        id: 3,
-        category_name: 'Greens',
-        description: 'Fresh Greens'
+        categoryId: 3,
+        categoryName: 'Drinks',
+        categoryDescription: 'Water, Juices, Alcoholic drinks'
     },
+    {
+        categoryId: 4,
+        categoryName: 'Foodstuffs',
+        categoryDescription: 'Ready Meals, Pasta & Rice, Meat'
+    }
 ]
 
 class Product {
-    constructor(category_id, name, img_link, description, price) {
+    constructor(imgLink, itemName, itemDescription, itemPrice, categoryId) {
         this.id = (Math.floor(Math.random() * Date.now()));
-        this.name = name;
-        this.category_id = +category_id;
-        this.img_link = img_link;
-        this.description = description;
-        this.price = price;
+        this.imgLink = imgLink;
+        this.itemName = itemName;
+        this.itemDescription = itemDescription;
+        this.itemPrice = itemPrice;
+        this.categoryId = +categoryId;
     }
 }
 
-const products = [
+let products = [
     {
-        category_id: 1,
-        name: 'Apple',
-        img_link: '#',
-        description: 'green Apple',
-        price: '1$'
+        imgLink: '#',
+        itemName: 'Apple',
+        itemDescription: 'Green Apple',
+        itemPrice: '1',
+        categoryId: 1
     }
 ]
 
 const renderCategory = () => {
-    const category_ele = document.createElement('ul')
+    const categoryList = document.createElement('ul')
+    const selectOptionAll = document.createElement('li')
+    selectOptionAll.textContent = 'Select All'
+    selectOptionAll.addEventListener('click', event => {
+        renderAllProducts(products)
+    })
+    categoryList.append(selectOptionAll)
+
     categories.forEach(category => {
-        const li = document.createElement('li')
-        li.textContent = category.category_name + " " + category.description
-        category_ele.append(li)
-        li.addEventListener('click', event => {
-            selectProductsByCategory(category.id)
+        const selectOption = document.createElement('li')
+        selectOption.textContent = category.categoryName
+        categoryList.append(selectOption)
+        selectOption.addEventListener('click', event => {
+            selectProductsByCategory(category.categoryId)
+            console.log(category.categoryId)
         })
     })
-    categoryContainer.append(category_ele)
+    categoryContainer.append(categoryList)
 }
 
-const selectProductsByCategory = (argument) => {
-    console.log(argument)
-    renderAllProducts(products.filter(product => product.category_id === argument))
+renderCategory()
+
+const selectProductsByCategory = (categoryId) => {
+    renderAllProducts(products.filter(product => product.categoryId === categoryId))
 }
 
 const renderProduct = (product) => {
-    const product_ele = document.createElement('div')
-    product_ele.className = 'productCard'
-
-    product_ele.innerHTML = `
+    console.log(product)
+    const productItem = document.createElement('div')
+    productItem.className = 'productCard'
+    productItem.innerHTML = `
     <div class="productCard__image">
-        <img src="${product.img_link}" alt="">
+        <img src="${product.imgLink}" alt="">
     </div>
-    <h2>${product.name}</h2>
-    <p>${product.description}</p>
-    <span>${product.price}</span>
-    <span>${product.id}</span>
-
+    <h2>${product.itemName}</h2>
+    <p>${product.itemDescription}</p>
+    <p>${product.itemPrice}</p>
+    <p>${product.id}</p>
+    <p>${product.categoryId}</p>
     `
-    productContainer.append(product_ele)
+    productsContainer.append(productItem)
 }
 
-const renderAllProducts = (productsArray) => {
-productContainer.innerHTML = ''
-    productsArray.forEach(product => {
+const renderAllProducts = (productsList) => {
+    productsContainer.innerHTML = ''
+    productsList.forEach(product => {
         renderProduct(product)
     })
 }
 
+renderAllProducts(products)
+
 const selectFill = () => {
-    category_name.innerHTML = categories.map(cat => `<option value="${cat.id}">${cat.category_name}</option>`).join("\n")
+    categoryName.innerHTML = categories.map(category => `<option value="${category.categoryId}">${category.categoryName}</option>`).join("\n")
 }
 
 selectFill()
-renderCategory()
-renderAllProducts(products)
 
 formAddCard.addEventListener('submit', (event) => {
     event.preventDefault()
-    products.push(new Product(category_name.value, name.value, img_link.value, description.value, price.value))
-    productContainer.innerHTML = ``
+    products.push(new Product(imgLink.value, itemName.value, itemDescription.value, itemPrice.value, categoryName.value))
+    productsContainer.innerHTML = ``
     products.forEach(product => {
         renderProduct(product)
     })
+    localStorage.setItem('products', JSON.stringify(products));
+
 })
+
+const getProducts = () => {
+    // const temp = JSON.parse(localStorage.getItem('products'));
+    // products = temp ? temp : []
+
+    products = JSON.parse(localStorage.getItem('products')) ?? []
+    renderAllProducts(products)
+}
+
+getProducts()
