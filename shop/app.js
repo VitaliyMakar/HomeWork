@@ -91,7 +91,6 @@ categorySelectContainer.addEventListener("change", (event) => {
     renderAllProducts(products);
   } else {
     selectProductsByCategory(+event.target.value);
-    console.log(event.target.value);
   }
 });
 
@@ -116,11 +115,12 @@ const renderProduct = (product) => {
     <p>${product.id}</p>
     <p>${product.categoryId}</p>
     `;
-  const btnDelete = document.createElement('button')
+  const btnDelete = document.createElement("button");
   btnDelete.textContent = "Delete";
-    btnDelete.addEventListener("click", (event) => {
-    event.preventDefault()
+  btnDelete.addEventListener("click", (event) => {
+    event.preventDefault();
     removeElement(product.id);
+    storageItem();
   });
   productItem.append(btnDelete);
   productsContainer.append(productItem);
@@ -166,7 +166,7 @@ formAddCard.addEventListener("submit", (event) => {
   products.forEach((product) => {
     renderProduct(product);
   });
-  localStorage.setItem("products", JSON.stringify(products));
+  storageItem();
   productsContainer.lastChild.style.backgroundColor = "red";
   setTimeout(() => {
     productsContainer.lastChild.style.backgroundColor = "transparent";
@@ -179,6 +179,10 @@ const getProducts = () => {
 
   products = JSON.parse(localStorage.getItem("products")) ?? [];
   renderAllProducts(products);
+};
+
+const storageItem = () => {
+  localStorage.setItem("products", JSON.stringify(products));
 };
 
 getProducts();
