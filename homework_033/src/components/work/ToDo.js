@@ -4,17 +4,18 @@ import Users from "./Users";
 
 const ToDo = () => {
 
-    const {todos} = useContext(GlobalContext)
-    const {activeUser} = useContext(GlobalContext)
+    const {todos, activeUser} = useContext(GlobalContext)
+
     return (
         <div className="work-container">
             <Users/>
-            <div>
+            <div className="work-container__list">
+                <div className="work-container__list--active-user">Todos from {!activeUser ? "Click on User" : activeUser.name}</div>
                 {
                     todos.map((todo) => (
                             <div
                                 key={todo.id}
-                                className={todo.completed ? "completed" : ""}
+                                className={todo.completed ? "work-container__list--completed" : "work-container__list-item"}
                             >
                                 {todo.title}
                             </div>

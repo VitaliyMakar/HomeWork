@@ -9,6 +9,8 @@ const GlobalContextComponent = (props) => {
     const [todos, setTodos] = useState([])
     const [posts, setPosts] = useState([])
     const [albums, setAlbums] = useState([])
+    const [activeAlbum, setActiveAlbum] = useState(null)
+    const [photos, setPhotos] = useState([])
 
 
     useEffect(() => {
@@ -22,6 +24,11 @@ const GlobalContextComponent = (props) => {
         fetchAlbums()
     }, [activeUser])
 
+    useEffect(() => {
+        if (!activeAlbum) return;
+        fetchPhotos()
+    }, [activeAlbum])
+
 
     const fetchUsers = async () => {
         try {
@@ -34,7 +41,7 @@ const GlobalContextComponent = (props) => {
 
     const fetchTodos = async () => {
         try {
-            const resp = await fetch('https://jsonplaceholder.typicode.com/todos?userId='+activeUser.id)
+            const resp = await fetch('https://jsonplaceholder.typicode.com/todos?userId=' + activeUser.id)
             setTodos(await resp.json())
         } catch (e) {
             console.log(e.message)
@@ -43,7 +50,7 @@ const GlobalContextComponent = (props) => {
 
     const fetchPosts = async () => {
         try {
-            const resp = await fetch('https://jsonplaceholder.typicode.com/posts?userId='+activeUser.id)
+            const resp = await fetch('https://jsonplaceholder.typicode.com/posts?userId=' + activeUser.id)
             setPosts(await resp.json())
         } catch (e) {
             console.log(e.message)
@@ -52,8 +59,17 @@ const GlobalContextComponent = (props) => {
 
     const fetchAlbums = async () => {
         try {
-            const resp = await fetch('https://jsonplaceholder.typicode.com/albums?userId='+activeUser.id)
+            const resp = await fetch('https://jsonplaceholder.typicode.com/albums?userId=' + activeUser.id)
             setAlbums(await resp.json())
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+
+    const fetchPhotos = async () => {
+        try {
+            const resp = await fetch('https://jsonplaceholder.typicode.com/photos?albumId=' + activeAlbum.id)
+            setPhotos(await resp.json())
         } catch (e) {
             console.log(e.message)
         }
@@ -67,7 +83,12 @@ const GlobalContextComponent = (props) => {
                 todos,
                 posts,
                 albums,
-                setActiveUser
+                setActiveUser,
+                activeAlbum,
+                setActiveAlbum,
+                photos,
+                setPhotos,
+                fetchPhotos
             }
         }>
             {props.children}
