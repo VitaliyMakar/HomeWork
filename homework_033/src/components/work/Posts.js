@@ -11,7 +11,7 @@ const Posts = () => {
             <Users/>
             <div className="work-container__list">
                 <div className="work-container__list--active-user">Posts
-                    from {!activeUser ? "Click on User" : activeUser.name}</div>
+                    from {!activeUser ? "...Click on User" : activeUser.name}</div>
                 {
                     posts.map((post) => (
                             <div

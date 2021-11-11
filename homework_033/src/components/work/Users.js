@@ -3,7 +3,7 @@ import {GlobalContext} from "./GlobalContextComponent";
 
 const Users = () => {
     const {users, activeUser, setActiveUser, setPhotos, setActiveAlbum} = useContext(GlobalContext)
-    
+
     return (
         <div className="work-container__userList">
             {

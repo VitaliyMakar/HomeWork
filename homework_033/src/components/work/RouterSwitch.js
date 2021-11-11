@@ -8,7 +8,7 @@ const RouterSwitch = () => {
     return (
         <div>
             <Routes className="work-container">
-                <Route className="" path="/" index element={<ToDo/>} />
+                <Route path="/" index element={<ToDo/>} />
                 <Route path="/Posts" element={<Posts/>} />
                 <Route path="/Albums" element={<Albums/>} />
             </Routes>

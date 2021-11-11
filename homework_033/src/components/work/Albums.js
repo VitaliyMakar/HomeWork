@@ -11,7 +11,7 @@ const Albums = () => {
             <Users/>
             <div className="work-container__list">
                 <div className="work-container__list--active-user">Albums
-                    from {!activeUser ? "Click on User" : activeUser.name}</div>
+                    from {!activeUser ? "...Click on User" : activeUser.name}</div>
                 {
                     albums.map((album) => (
                             <div
@@ -30,7 +30,7 @@ const Albums = () => {
             </div>
             <div className="work-container__head">
                 <div className="work-container__photos--active-album">Photos
-                    from Album {!activeAlbum ? "Click on Album" : activeAlbum.title}</div>
+                    from Album {!activeAlbum ? "...Click on Album" : activeAlbum.title}</div>
                 <div className="work-container__photos" id="containerPhotos">
                     {
                         photos.map((photo) => (
