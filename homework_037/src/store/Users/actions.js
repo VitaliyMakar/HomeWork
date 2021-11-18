@@ -1,0 +1,2 @@
+export const FETCH_USERS = 'FETCH_USERS'
+export const CHANGE_ACTIVE_USER = 'CHANGE_ACTIVE_USER'
