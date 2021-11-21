@@ -1,0 +1,3 @@
+export const FETCH_ALBUMS = 'FETCH_ALBUMS'
+export const CHANGE_ACTIVE_ALBUM = 'CHANGE_ACTIVE_ALBUM'
+

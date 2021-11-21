@@ -1,0 +1,4 @@
+export const FETCH_TODOS = 'FETCH_TODOS'
+export const CHANGE_STATUS_TODO = 'CHANGE_STATUS_TODO'
+export const CLEAR_TODOS = 'CLEAR_TODOS'
+

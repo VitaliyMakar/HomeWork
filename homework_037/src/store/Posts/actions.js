@@ -1,0 +1,3 @@
+export const FETCH_POSTS = 'FETCH_POSTS'
+export const CHANGE_ACTIVE_POST = 'CHANGE_ACTIVE_POST'
+

@@ -1,0 +1,18 @@
+.user-list {
+  width: 20%;
+
+  &__user {
+    cursor: pointer;
+
+    &--active {
+      font-size: 18px;
+      color: cadetblue;
+      border-bottom: 1px solid cadetblue;
+    }
+
+    &:hover {
+      background-color: gray;
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.modal-window {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.3);
+    padding-top: 50px;
+
+
+}
+
+.modal-wrapper {
+    width: 50%;
+    margin: auto;
+    padding: 30px;
+    background-color: lavender;
+    box-shadow: 0 10px 18px 0 rgba(0, 0, 0, 0.2), 0 16px 30px 0 rgba(0, 0, 0, 0.19);
+
+    &--img {
+        display: flex;
+        max-width: 400px;
+        max-height: 400px;
+        object-fit: cover;
+        overflow: hidden;
+        & img {
+            width: 100%;
+        }
+    }
+  }
+
+.modal-button {
+    font-size: 16px;
+    letter-spacing: 2px;
+    //text-decoration: none;
+    border: none;
+    display: inline-block;
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    transition: 0.3s all linear;
+
+    &:hover {
+        background-color: rgba($color: black, $alpha: .3);
+        color: gray;
+    }
+}

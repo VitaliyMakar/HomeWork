@@ -1,0 +1,3 @@
+export const FETCH_PHOTOS = 'FETCH_PHOTOS'
+export const CHANGE_ACTIVE_PHOTO = 'CHANGE_ACTIVE_PHOTO'
+

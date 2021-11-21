@@ -1,0 +1,40 @@
+.items-list {
+  width: 40%;
+  border-left: 1px solid cadetblue;
+
+  &__list-head {
+    padding: 0 20px;
+    font-size: 18px;
+    color: cadetblue;
+    margin-bottom: 10px;
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 0 20px;
+
+    &:hover {
+      background-color: gray;
+      color: white;
+    }
+
+    &--active {
+      padding: 0 20px;
+      font-size: 18px;
+      color: cadetblue;
+      border-bottom: 1px solid cadetblue;
+    }
+
+    &--completed {
+      padding: 0 20px;
+      text-decoration: line-through;
+    }
+  }
+
+  //&__active-item {
+  //  padding: 0 20px;
+  //  font-size: 18px;
+  //  color: cadetblue;
+  //  margin-bottom: 10px;
+  //}
+}

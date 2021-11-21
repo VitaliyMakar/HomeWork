@@ -1,0 +1,24 @@
+.nav-list {
+  display: flex;
+  margin-bottom: 20px;
+
+  &__item {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-decoration: none;
+    display: inline-block;
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    transition: 0.3s all linear;
+
+    &:hover {
+      background-color: rgba($color: black, $alpha: .3);
+      color: gray;
+    }
+  }
+}
+
+.active {
+  background-color: cadetblue;
+}

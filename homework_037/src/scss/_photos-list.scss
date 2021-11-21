@@ -1,0 +1,47 @@
+.photos-list {
+  width: 40%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  //gap: 10px;
+
+  &__list-head {
+    padding: 0 20px;
+    font-size: 18px;
+    color: cadetblue;
+    margin-bottom: 10px;
+  }
+
+  &__photo {
+    cursor: pointer;
+    padding: 10px 10px;
+
+    &--text {
+      font-size: 16px;
+
+    }
+
+    &:hover {
+      background-color: gray;
+      color: white;
+    }
+
+    &--active {
+      padding: 0 20px;
+      font-size: 18px;
+      color: cadetblue;
+      border: 1px solid cadetblue;
+    }
+
+    &--img {
+      display: flex;
+      max-width: 100px;
+      max-height: 100px;
+      object-fit: cover;
+      overflow: hidden;
+      & img {
+        width: 100%;
+      }
+    }
+
+  }
+}
